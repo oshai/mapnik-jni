@@ -3,8 +3,7 @@ mapnik-jni
 
 Bindings to use Mapnik from Java.  Supports programatically building/introspecting a map, enumerating features and rendering with [AGG](https://github.com/tomhughes/agg).
 
-This repository was forked from [jlnr/mapnik-jni](https://github.com/jlnr/mapnik-jni), which seems to be defunct.
-The original [SpatialInteractive/mapnik-jni](https://github.com/SpatialInteractive/mapnik-jni) seem to be defunct defunct and was not useful for mapnik 3.x.
+This repository was forked from [jlnr/mapnik-jni](https://github.com/jlnr/mapnik-jni), which seems to be defunct, and the original [SpatialInteractive/mapnik-jni](https://github.com/SpatialInteractive/mapnik-jni) was not useful for mapnik 3.x.
 
 **I will do some changes and update this repository continuously.
 I also accept pull requests to make mapnik jni better.**
