@@ -1,11 +1,12 @@
 mapnik-jni
 ==========
 
-Bindings to use Mapnik from Java.  Supports programatically building/introspecting a map, enumerating features and rendering with AGG.
+Bindings to use Mapnik from Java.  Supports programatically building/introspecting a map, enumerating features and rendering with [AGG](https://github.com/tomhughes/agg).
 
-This repository was forked from [springmeyer/mapnik-jni](https://github.com/springmeyer/mapnik-jni), which seems to be defunct, just like the original [SpatialInteractive/mapnik-jni](https://github.com/SpatialInteractive/mapnik-jni). I have explained some changes that I made in [this pull request](https://github.com/springmeyer/mapnik-jni/pull/9).
+This repository was forked from [jlnr/mapnik-jni](https://github.com/jlnr/mapnik-jni), which seems to be defunct, just like the original [SpatialInteractive/mapnik-jni](https://github.com/SpatialInteractive/mapnik-jni).
 
-**I have no use for mapnik-jni anymore. I might still accept simple pull requests, but if you need more than that, please fork this project and let me know – I will then shut down this fork.**
+**I will do some changes and update this repository continuously.
+I also accept pull requests to make mapnik jni better.**
 
 Prerequisites
 -------------
@@ -19,7 +20,7 @@ Links
 -----
 
 * [JavaDocs](http://spatialinteractive.github.com/mapnik-jni/javadocs/index.html)
-* [NanoMaps Server](https://github.com/SpatialInteractive/nanomaps-server) A tile server.  One of the first things written with the Java bindings.
+* [NanoMaps Server](https://github.com/SpatialInteractive/nanomaps-server) A tile server.  One of the first things written with the Java bindings and Mapnik 2. But it could still be used as a reference.
 * [Mapnik Distiller](https://github.com/SpatialInteractive/mapnik-distiller) Map data optimizer.  Another bit written with the Java bindings.
 
 Building
@@ -89,3 +90,17 @@ String format = new PngFormatStringBuilder()
 
 image.saveToFile(path, format);
 ```
+
+What's New
+-----------------
+### **FreetypeEngine API**
+* Get All faceNames From fontsDir
+
+Build On Visual Studio
+-----------------
+* Visual Studio ≥ 2015
+* CD folder msvc And Open [mapnik-jni.sln](msvc/mapnik-jni.sln) With VS
+* Open Property Pages
+* Select Configuration Properties -> VC++ Directories
+* Change Include Directories to your jni files and your mapnik3.x include folder that you builded
+* Change Library Directories to your mapnik3.x library floder that you builded

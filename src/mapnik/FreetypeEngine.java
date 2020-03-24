@@ -7,4 +7,5 @@ public class FreetypeEngine {
 		return registerFonts(dir, false);
 	}
 	public static native boolean isFontFile(String filename);
+	public static native String[] faceNames();
 }

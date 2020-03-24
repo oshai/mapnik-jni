@@ -47,8 +47,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\Program Files\Java\jdk1.8.0_73\include;C:\Program Files\Java\jdk1.8.0_73\include\win32;..\..\mapnik-sdk\include;..\..\agg-2.5\include;$(IncludePath)</IncludePath>
-    <LibraryPath>..\..\mapnik-sdk\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\Java\jdk1.8.0_161\include;D:\Java\jdk1.8.0_161\include\win32;D:\workspace\mapnik-jni-3.0.x\mapnik-sdk\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\workspace\mapnik-jni-3.0.x\mapnik-sdk\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
