@@ -41,13 +41,37 @@
  * Signature: ()V
  */
 JNIEXPORT void JNICALL Java_mapnik_Mapnik_nativeInit
-  (JNIEnv *env, jclass c)
-{
-	PREAMBLE;
-	if (initialized) return;
-	if (init_ids(env))
-		initialized=true;
-	TRAILER_VOID;
+( JNIEnv* env, jclass c ) {
+  PREAMBLE;
+
+  if ( initialized ) {
+    return;
+  }
+
+  if ( init_ids ( env ) ) {
+    initialized = true;
+  }
+
+  TRAILER_VOID;
+}
+
+/*
+* Class:     mapnik_Mapnik
+* Method:    initLogger
+* Signature: (Ljava/lang/String;I)V
+*/
+JNIEXPORT void JNICALL Java_mapnik_Mapnik_initLogger
+( JNIEnv* env, jclass c, jstring sj, jint level ) {
+  PREAMBLE;
+  refjavastring path ( env, sj );
+#if MAPNIK_VERSION >= 200200
+  mapnik::logger::instance().use_file ( path.stringz );
+  mapnik::logger::instance().set_severity ( static_cast<mapnik::logger::severity_type> ( level ) );
+#else
+  mapnik::logger::instance()->use_file ( path.stringz );
+  mapnik::logger::instance()->set_severity ( static_cast<mapnik::logger::severity_type> ( level ) );
+#endif
+  TRAILER_VOID;
 }
 
 /*
@@ -56,12 +80,11 @@ JNIEXPORT void JNICALL Java_mapnik_Mapnik_nativeInit
  * Signature: ()Ljava/lang/String;
  */
 JNIEXPORT jstring JNICALL Java_mapnik_Mapnik_getInstalledFontsDir
-  (JNIEnv *env, jclass)
-{
+( JNIEnv* env, jclass ) {
 #ifndef MAPNIK_FONTS_DIR
-	return 0;
+  return 0;
 #else
-	return env->NewStringUTF(MAPNIK_FONTS_DIR);
+  return env->NewStringUTF ( MAPNIK_FONTS_DIR );
 #endif
 }
 
@@ -71,12 +94,11 @@ JNIEXPORT jstring JNICALL Java_mapnik_Mapnik_getInstalledFontsDir
  * Signature: ()Ljava/lang/String;
  */
 JNIEXPORT jstring JNICALL Java_mapnik_Mapnik_getInstalledInputPluginsDir
-  (JNIEnv *env, jclass)
-{
+( JNIEnv* env, jclass ) {
 #ifndef MAPNIK_INPUT_PLUGINS_DIR
-	return 0;
+  return 0;
 #else
-	return env->NewStringUTF(MAPNIK_INPUT_PLUGINS_DIR);
+  return env->NewStringUTF ( MAPNIK_INPUT_PLUGINS_DIR );
 #endif
 }
 
@@ -86,11 +108,10 @@ JNIEXPORT jstring JNICALL Java_mapnik_Mapnik_getInstalledInputPluginsDir
  * Signature: ()Z
  */
 JNIEXPORT jboolean JNICALL Java_mapnik_Mapnik_isThreadSafe
-  (JNIEnv *env, jclass c)
-{
+( JNIEnv* env, jclass c ) {
 #ifdef MAPNIK_THREADSAFE
-	return 1;
+  return 1;
 #else
-	return 0;
+  return 0;
 #endif
 }

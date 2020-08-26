@@ -141,4 +141,9 @@ public class Mapnik {
 	 * @return true if mapnik was compiled threadsafe
 	 */
 	public static native boolean isThreadSafe();
+
+	/**
+	 * init the mapnik logger
+	 */
+	public static native void initLogger(String loggerPath, int level);
 }

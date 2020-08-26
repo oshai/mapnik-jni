@@ -93,8 +93,13 @@ image.saveToFile(path, format);
 
 What's New
 -----------------
+2020-03-24
 ### **FreetypeEngine API**
 * Get All faceNames From fontsDir
+
+2020-08-26
+### **Logger**
+* Set Logger Path And Level (debug = 0 warn = 1 error = 2 none = 3)
 
 Build On Visual Studio
 -----------------
