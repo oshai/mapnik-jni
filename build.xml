@@ -7,11 +7,7 @@
 		<mkdir dir="csrc"/>
 		<javac srcdir="src" destdir="build/classes" debug="on" source="1.8" target="1.8" includeantruntime="false"/>
 	</target>
-	
-	<target name="headers" depends="compile">
-		<javah class="mapnik.Parameters,mapnik.Mapnik,mapnik.MapDefinition,mapnik.Layer,mapnik.FeatureTypeStyle,mapnik.Datasource,mapnik.DatasourceCache,mapnik.Projection,mapnik.Query,mapnik.FeatureSet,mapnik.Geometry,mapnik.Image,mapnik.Renderer,mapnik.FreetypeEngine" outputfile="csrc/mapnikjni.h" classpath="build/classes"/>
-	</target>
-	
+
 	<target name="jar" depends="compile">
 		<mkdir dir="build/dist"/>
 		<jar jarfile="build/dist/mapnik-jni.jar" basedir="build/classes"/>
@@ -70,7 +66,7 @@
 		</delete>
 	</target>
 	
-	<target name="native-init" depends="headers">
+	<target name="native-init" depends="compile">
 		<condition property="platform.makefile" value="Makefile.osx">
 			<os family="mac"/>
 		</condition>
