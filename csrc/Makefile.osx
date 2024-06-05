@@ -2,8 +2,8 @@ include common.mk
 
 MAPNIK_LIBS = $(shell mapnik-config --libs)
 
-libmapnik-jni.jnilib: $(SOURCE_DEPENDS)
-	$(CXX) -o libmapnik-jni.jnilib -undefined dynamic_lookup -bundle \
+libmapnik-jni.dylib: $(SOURCE_DEPENDS)
+	$(CXX) -o libmapnik-jni.dylib -dynamiclib \
 		$(CFLAGS) \
 		$(MAPNIK_CFLAGS) \
 		$(JAVA_CFLAGS) \
@@ -11,8 +11,6 @@ libmapnik-jni.jnilib: $(SOURCE_DEPENDS)
 		$(LDFLAGS) \
 		$(JAVA_LDFLAGS) \
 		$(MAPNIK_LIBS)
-	
-clean:
-	rm libmapnik-jni.jnilib
-	
 
+clean:
+	rm libmapnik-jni.dylib

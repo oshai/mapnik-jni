@@ -4,6 +4,7 @@ wiki/
 pages/
 *.so
 *.jnilib
+*.dylib
 *~
 
 # OS X clutter
